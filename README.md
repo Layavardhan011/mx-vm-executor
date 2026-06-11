@@ -21,5 +21,5 @@ from a Linux box using osxcross. See
 [`scripts/build-dylib-via-osxcross.sh`](scripts/build-dylib-via-osxcross.sh).
 
 Releases tagged for end users should still ship the canonical
-macOS-built dylibs; the cross-build path is for internal dev / CI / soak
+macOS-built dylibs; the cross-build path is for internal dev / CI / soak.
 use, with mandatory final validation on real macOS before any release.
