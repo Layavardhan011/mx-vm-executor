@@ -35,7 +35,7 @@ impl<VH: VMHooksSetEarlyExit> VMHooksLegacyAdapter<VH> {
     {
         let mut vm_hooks = self
             .inner_cell
-            .lock()
+            .try_lock()
             .expect("VMHooksLegacyAdapter mutex poisoned");
         let result = f(&mut *vm_hooks);
         result.unwrap_or_else(|early_exit| {
@@ -1214,3 +1214,4 @@ impl<VH: VMHooksSetEarlyExit> VMHooksLegacy for VMHooksLegacyAdapter<VH> {
         self.adapt_vm_hooks(|inner| VMHooks::managed_pairing_checks_ec(inner, curve_id, points_g1_handle, points_g2_handle))
     }
 }
+
